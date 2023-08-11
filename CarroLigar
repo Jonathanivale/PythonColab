@@ -1,0 +1,46 @@
+class Carro:
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+        self.ligado = False
+        self.velocidade = 0
+
+    def ligar(self):
+        if not self.ligado:
+            print(f"{self.marca} {self.modelo} ligado.")
+            self.ligado = True
+        else:
+            print(f"O {self.marca} {self.modelo} já está ligado.")
+
+    def desligar(self):
+        if self.ligado:
+            print(f"{self.marca} {self.modelo} desligado.")
+            self.ligado = False
+            self.velocidade = 0
+        else:
+            print(f"O {self.marca} {self.modelo} já está desligado.")
+
+    def acelerar(self, quantidade):
+        if self.ligado:
+            self.velocidade += quantidade
+            print(f"Acelerando. Velocidade atual: {self.velocidade} km/h")
+        else:
+            print(f"O {self.marca} {self.modelo} está desligado. Não é possível acelerar.")
+
+    def frear(self, quantidade):
+        if self.ligado and self.velocidade > 0:
+            self.velocidade -= quantidade
+            if self.velocidade < 0:
+                self.velocidade = 0
+            print(f"Freando. Velocidade atual: {self.velocidade} km/h")
+        else:
+            print(f"O {self.marca} {self.modelo} está parado ou desligado. Não é possível frear.")
+
+# Criando uma instância da classe Carro
+meu_carro = Carro(marca="Toyota", modelo="Corolla")
+
+# Testando o funcionamento
+meu_carro.ligar()
+meu_carro.acelerar(30)
+meu_carro.frear(10)
+meu_carro.desligar()

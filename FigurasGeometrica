@@ -1,0 +1,36 @@
+class FiguraGeometrica():
+  def __init__(self,nome):
+    self.nome = nome
+  def calcula_area(self):
+    pass
+
+
+class Quadrado(FiguraGeometrica):
+  def __init__(self,lado):
+    self.lado = lado
+  def calcula_area(self):    
+    print(self.lado * self.lado)
+
+class Triangulo(FiguraGeometrica):
+  def __init__(self,base,altura):
+   self.base = base
+   self.altura = altura
+    
+  def calcula_area(self):
+    print((self.base * self.altura) /2)
+
+class Circulo(FiguraGeometrica):
+  def __init__(self,raio):
+    self.raio = raio
+
+  def calcula_area(self):
+    print(3.14*(self.raio**2))
+
+
+q =Quadrado(6)
+t = Triangulo(1.5,2.5)
+c = Circulo(15)
+
+q.calcula_area()
+t.calcula_area()
+c.calcula_area()
